@@ -34,4 +34,6 @@ jobs:
         run: mkdocs build
 
       - name: Deploy to Github Pages
-        run: mkdocs gh-deploy
+        uses: mhausenblas/mkdocs-deploy-gh-pages@master
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
