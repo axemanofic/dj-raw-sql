@@ -46,13 +46,10 @@ plugins:
   - search
 extra:
   social:
-    - icon: material/gitlab
-      link: https://gitlab.noosoft.ru/
-      name: Gitlab
     - icon: material/github
-      link: https://github.com/noosoftware
+      link: https://github.com/axemanofic/dj-raw-sql
       name: Github
-    - icon: material/docker
-      link: http://hub.noosoftware.com
-      name: Dockerhub
+    - icon: simple/pypi
+      link: https://github.com/axemanofic/dj-raw-sql
+      name: Github
 copyright: Copyright &copy; 2023 Roman Sotnikov
