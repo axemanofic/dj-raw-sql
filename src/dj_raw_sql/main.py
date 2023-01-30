@@ -1,26 +1,31 @@
 from django.db import connection
-
-from dj_raw_sql.types import DecoratedFunction, ResultQuery
-from dj_raw_sql.utils import get_list_ordereddict, get_sql
+from dj_raw_sql.utils import get_list_ordereddict, get_raw_sql
 
 
-def execute_sql(get_query: DecoratedFunction) -> DecoratedFunction:
-    def wrapper(*args, **kwargs) -> ResultQuery:
-        sql, params = get_sql(get_query, *args, **kwargs)
-        with connection.cursor() as cursor:
-            cursor.execute(sql, params)
-            result = get_list_ordereddict(cursor)
-        return result
+def execute_sql(to_ordereddict=False):
+    def wrapper(get_query):
+        def main(*args, **kwargs):
+            sql, params = get_raw_sql(get_query, *args, **kwargs)
+            with connection.cursor() as cursor:
+                cursor.execute(sql, params)
+                if to_ordereddict:
+                    return get_list_ordereddict(cursor.description, cursor.fetchall())
+                return cursor.fetchall()
 
-    return wrapper
-
-
-def call_procedure(get_query: DecoratedFunction) -> DecoratedFunction:
-    def wrapper(*args, **kwargs) -> ResultQuery:
-        sql, params = get_sql(get_query, *args, **kwargs)
-        with connection.cursor() as cursor:
-            cursor.callproc(sql, params)
-            result = get_list_ordereddict(cursor)
-        return result
+        return main
 
     return wrapper
+
+
+def call_procedure(
+    procedure_name: str,
+    params=None,
+    kparams=None,
+):
+    with connection.cursor() as cursor:
+        cursor.callproc(
+            procname=procedure_name,
+            params=params,
+            kparams=kparams,
+        )
+        return cursor.fetchall()

@@ -1,12 +1,15 @@
 from collections import OrderedDict
-from typing import Tuple
+from typing import Tuple, Callable, Optional
 
-from dj_raw_sql.types import ResultQuery
+from dj_raw_sql.types import (
+    RawSQL,
+    CursorDescription,
+    ListOrderedDict,
+)
 
 
-def get_sql(get_query, *args, **kwargs) -> Tuple[str, Tuple]:
-    sql: str = ""
-    params: Tuple = tuple()
+def get_raw_sql(get_query: Callable, *args, **kwargs) -> RawSQL:
+    sql, params = "", ()
     try:
         sql, params = get_query(*args, **kwargs)
     except ValueError:
@@ -14,8 +17,11 @@ def get_sql(get_query, *args, **kwargs) -> Tuple[str, Tuple]:
     return sql, params
 
 
-def get_list_ordereddict(cursor) -> ResultQuery:
-    if cursor.description:
-        columns = [column[0] for column in cursor.description]
-        return [OrderedDict(zip(columns, row)) for row in cursor.fetchall()]
+def get_list_ordereddict(
+    description: CursorDescription,
+    data: Tuple,
+) -> Optional[ListOrderedDict]:
+    if description:
+        columns: list[str] = [element[0] for element in description]
+        return [OrderedDict(zip(columns, row)) for row in data]
     return None
