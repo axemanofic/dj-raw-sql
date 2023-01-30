@@ -27,8 +27,8 @@ jobs:
       - name: Config venv
         run: poetry config virtualenvs.create false
 
-      - name: Install dependencies
-        run: poetry install
+      - name: Install dependencies for doc
+        run: poetry install --only doc
 
       - name: Build docs
         run: mkdocs build
@@ -36,4 +36,4 @@ jobs:
       - name: Deploy to Github Pages
         uses: mhausenblas/mkdocs-deploy-gh-pages@master
         env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
