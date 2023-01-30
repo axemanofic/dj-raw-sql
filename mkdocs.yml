@@ -1,0 +1,58 @@
+site_name: dj-raw-sql
+edit_uri: ""
+theme:
+  name: material
+  features:
+    - navigation.tracking
+    - navigation.top
+    - content.code.copy
+  palette:
+    # Palette toggle for automatic mode
+    - media: "(prefers-color-scheme)"
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/brightness-auto
+        name: Switch to dark 77  mode
+
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/weather-sunny
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: green
+      toggle:
+        icon: material/weather-night
+        name: Switch to system mode
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight
+  - pymdownx.inlinehilite
+
+plugins:
+  - search
+extra:
+  social:
+    - icon: material/gitlab
+      link: https://gitlab.noosoft.ru/
+      name: Gitlab
+    - icon: material/github
+      link: https://github.com/noosoftware
+      name: Github
+    - icon: material/docker
+      link: http://hub.noosoftware.com
+      name: Dockerhub
+copyright: Copyright &copy; 2023 Roman Sotnikov
