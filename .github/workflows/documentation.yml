@@ -7,34 +7,19 @@ on:
   pull_request:
     types: [opened, synchronize]
 
+permissions:
+  contents: write
 jobs:
-  build_and_deploy:
+  deploy:
     runs-on: ubuntu-latest
     steps:
-      - name: Checkout master
-        uses: actions/checkout@v3
-
-      - name: Set up Python 3.11
-        uses: actions/setup-python@v4
+      - uses: actions/checkout@v3
+      - uses: actions/setup-python@v4
         with:
-          python-version: "3.11"
-
-      - name: Set up poetry
-        uses: abatilo/actions-poetry@v2
+          python-version: 3.x
+      - uses: actions/cache@v2
         with:
-          poetry-version: 1.2
-
-      - name: Config venv
-        run: poetry config virtualenvs.create false
-
-      - name: Install dependencies for doc
-        run: poetry install --only doc
-
-      - name: Build docs
-        run: mkdocs build
-
-      - name: Deploy to Github Pages
-        uses: mhausenblas/mkdocs-deploy-gh-pages@master
-        env:
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          PERSONAL_TOKEN: ${{ secrets.PERSONAL_TOKEN }}
+          key: ${{ github.ref }}
+          path: .cache
+      - run: pip install mkdocs-material
+      - run: mkdocs gh-deploy --force
