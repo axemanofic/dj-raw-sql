@@ -1,5 +1,9 @@
+<<<<<<< HEAD
 name: main
 
+=======
+name: Build Docs
+>>>>>>> dev
 on:
   push:
     branches:
