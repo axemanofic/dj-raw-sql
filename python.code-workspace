@@ -5,6 +5,7 @@
         }
     ],
     "settings": {
+        "python.defaultInterpreterPath": "${workspaceFolder}/.venv/bin/python",
         "files.autoSave": "afterDelay",
         "editor.formatOnSave": true,
         "[python]": {
@@ -17,8 +18,6 @@
         "python.linting.pylintEnabled": true,
         // TYPING
         "python.linting.mypyEnabled": true,
-        // TESTING
-        "python.testing.pytestEnabled": true,
         // DISABLE SETTINGS
         "python.linting.enabled": false,
         "python.linting.banditEnabled": false,
@@ -27,7 +26,6 @@
         "python.linting.pycodestyleEnabled": false,
         "python.linting.prospectorEnabled": false,
         "python.linting.pydocstyleEnabled": false,
-        "python.testing.unittestEnabled": false,
         // MYPY
         "mypy.runUsingActiveInterpreter": true,
         "mypy.dmypyExecutable": "{$workspace}/.venv/bin/dmypy",
@@ -44,6 +42,15 @@
             "black",
         ],
         "isort.importStrategy": "fromEnvironment",
+        // TESTING
+        "python.testing.pytestArgs": [
+            "tests/"
+        ],
+        "python.testing.unittestEnabled": false,
+        "python.testing.pytestEnabled": true,
+        "python.analysis.extraPaths": [
+            "./dj_project"
+        ],
     },
     "extensions": {
         "unwantedRecommendations": [

@@ -8,8 +8,7 @@ packages = [{include = "dj_raw_sql", from = "src"}]
 
 [tool.poetry.dependencies]
 python = "^3.11"
-django = ">3.2"
-pylint-django = "^2.5.3"
+django = ">=3.2"
 
 [tool.poetry.group.dev.dependencies]
 pytest = "^7.2.1"
@@ -20,7 +19,8 @@ mypy = "^0.991"
 pylint = "^2.15.10"
 django-stubs = "^1.13.1"
 django-types = "^0.16.0"
-
+pylint-django = "^2.5.3"
+mkdocs-material = "^9.0.8"
 
 [tool.black]
 line-length = 88
