@@ -1,14 +1,5 @@
-from typing import (
-    TypeAlias,
-    List,
-    Tuple,
-    Optional,
-    OrderedDict,
-    Any,
-)
+from typing import Any, List, OrderedDict, Tuple, TypeAlias
 
 RawSQL: TypeAlias = Tuple[str, Tuple]
-
-CursorDescription: TypeAlias = Optional[Tuple[Tuple]]
 
 ListOrderedDict: TypeAlias = List[OrderedDict[str, Any]]
