@@ -71,12 +71,6 @@ jobs:
         run: poetry install --without dev,test,doc
       - name: Build project
         run: poetry build
-      - name: Create Release
-        uses: ncipollo/release-action@v1
-        with:
-          artifacts: "dist/*"
-          token: ${{ secrets.GITHUB_TOKEN }}
-          draft: false
       - name: Publish to PyPI
         env:
           POETRY_PYPI_TOKEN_PYPI: ${{ secrets.PYPI_TOKEN }}
