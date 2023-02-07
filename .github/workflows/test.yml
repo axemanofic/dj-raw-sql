@@ -22,5 +22,5 @@ jobs:
         uses: abatilo/actions-poetry@v2
         with:
           poetry-version: 1.3
-      - run: poetry install
+      - run: poetry install --without docs,dev
       - run: poetry run pytest ./tests/test_execute_sql.py
