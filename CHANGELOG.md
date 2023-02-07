@@ -1,9 +1,12 @@
-## 1.0.2 (2023-02-07)
+## 1.1.0 (2023-02-07)
+
+### Feat
+
+- add tested ci
+- add linting commits
 
 ### Fix
 
-- delete params function 'get_list_ordered_dict'
-
-## 1.0.1 (2023-02-06)
-
-## 0.0.2 (2023-01-30)
+- delete empty workflows
+- update 'get_list_ordereddict'
+- update params function 'get_list_ordereddict'
