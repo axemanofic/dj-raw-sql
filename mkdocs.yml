@@ -49,6 +49,6 @@ extra:
       link: https://github.com/axemanofic/dj-raw-sql
       name: Github
     - icon: simple/pypi
-      link: https://github.com/axemanofic/dj-raw-sql
-      name: Github
+      link: https://pypi.org/project/dj-raw-sql/
+      name: PyPi
 copyright: Copyright &copy; 2023 Roman Sotnikov
