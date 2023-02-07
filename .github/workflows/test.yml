@@ -1,16 +1,13 @@
-name: Build Docs
+name: Test environment
 
 on:
   push:
     branches:
-      - master
+      - dev
   pull_request:
     types: [opened, synchronize]
-
-permissions:
-  contents: write
 jobs:
-  deploy:
+  testing:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v3
@@ -21,5 +18,9 @@ jobs:
         with:
           key: ${{ github.ref }}
           path: .cache
-      - run: pip install mkdocs-material
-      - run: mkdocs gh-deploy --force
+      - name: Set up poetry
+        uses: abatilo/actions-poetry@v2
+        with:
+          poetry-version: 1.x
+      - run: poetry install --only=tests
+      - run: pytest ./tests/test_execute_sql.py
