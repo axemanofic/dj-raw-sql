@@ -10,17 +10,22 @@ jobs:
   testing:
     runs-on: ubuntu-latest
     steps:
-      - uses: actions/checkout@v3
-      - uses: actions/setup-python@v4
+      - name: Checkout dev
+        uses: actions/checkout@v3
+      - name: Install Python
+        uses: actions/setup-python@v4
         with:
           python-version: 3.x
-      - uses: actions/cache@v2
+      - name: Install caching
+        uses: actions/cache@v2
         with:
           key: ${{ github.ref }}
           path: .cache
-      - name: Set up poetry
+      - name: Install Poetry
         uses: abatilo/actions-poetry@v2
         with:
           poetry-version: 1.3
-      - run: poetry install --without docs,dev
-      - run: poetry run pytest ./tests/test_execute_sql.py
+      - name: Install dependencies
+        run: poetry install --without docs,dev
+      - name: Run tests
+        run: poetry run pytest ./tests/test_execute_sql.py
