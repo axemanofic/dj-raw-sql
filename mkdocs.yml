@@ -1,5 +1,5 @@
 site_name: dj-raw-sql
-edit_uri: ""
+site_url: https://github.com/axemanofic/dj-raw-sql/
 theme:
   name: material
   features:
