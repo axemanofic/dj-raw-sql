@@ -33,11 +33,11 @@ pre-commit = "^3.0.2"
 commitizen = "^2.40.0"
 
 
-[tool.poetry.group.tests.dependencies]
+[tool.poetry.group.test.dependencies]
 pytest = "^7.2.1"
 pytest-django = "^4.5.2"
 
-[tool.poetry.group.doc.dependencies]
+[tool.poetry.group.docs.dependencies]
 mkdocs-material = "^9.0.8"
 
 
