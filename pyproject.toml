@@ -1,10 +1,21 @@
 [tool.poetry]
 name = "dj-raw-sql"
-version = "0.1.0"
-description = ""
+version = "1.1.0"
+description = "This is a Django wrapper to make it easier to write raw SQL queries."
 authors = ["Roman Sotnikov <axeman.ofic@gmail.com>"]
 readme = "README.md"
 packages = [{include = "dj_raw_sql", from = "src"}]
+license = "MIT"
+maintainers = ["Roman <axeman.ofic@gmail.com>"]
+repository = "https://github.com/axemanofic/dj-raw-sql"
+keywords = ["python", "django"]
+classifiers = [
+    "Development Status :: 5 - Production/Stable",
+    "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.11",
+    "Framework :: Django :: 3.2",
+]
+
 
 [tool.poetry.dependencies]
 python = "^3.11"
@@ -18,7 +29,9 @@ pylint = "^2.15.10"
 django-stubs = "^1.13.1"
 django-types = "^0.16.0"
 pylint-django = "^2.5.3"
-mkdocs-material = "^9.0.8"
+pre-commit = "^3.0.2"
+commitizen = "^2.40.0"
+
 
 [tool.poetry.group.tests.dependencies]
 pytest = "^7.2.1"
@@ -53,3 +66,11 @@ exclude = '''
 [build-system]
 requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
+
+[tool.commitizen]
+name = "cz_conventional_commits"
+version = "1.1.0"
+version_files = [
+  "src/__version__.py",
+  "pyproject.toml:^version",
+]
