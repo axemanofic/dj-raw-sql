@@ -14,11 +14,9 @@
         },
         // FORMATTING
         "python.formatting.provider": "black",
-        // LINTING
-        "python.linting.pylintEnabled": true,
-        // TYPING
-        "python.linting.mypyEnabled": true,
         // DISABLE SETTINGS
+        "python.linting.pylintEnabled": false,
+        "python.linting.mypyEnabled": false,
         "python.linting.enabled": false,
         "python.linting.banditEnabled": false,
         "python.linting.flake8Enabled": false,
@@ -26,22 +24,6 @@
         "python.linting.pycodestyleEnabled": false,
         "python.linting.prospectorEnabled": false,
         "python.linting.pydocstyleEnabled": false,
-        // MYPY
-        "mypy.runUsingActiveInterpreter": true,
-        "mypy.dmypyExecutable": "{$workspace}/.venv/bin/dmypy",
-        "mypy.debugLogging": true,
-        "mypy.configFile": "mypy.ini",
-        "mypy.targets": [
-            "src/",
-            "tests/"
-        ],
-        // ISORT
-        "isort.check": true,
-        "isort.args": [
-            "--profile",
-            "black",
-        ],
-        "isort.importStrategy": "fromEnvironment",
         // TESTING
         "python.testing.pytestArgs": [
             "tests/"
@@ -61,11 +43,10 @@
             // PYTHON EXTENSIONS
             "ms-python.python",
             "ms-python.black-formatter",
-            "ms-python.isort",
-            "ms-python.pylint",
+            "ms-pyright.pyright",
+            "charliermarsh.ruff",
             "zeshuaro.vscode-python-poetry",
             "donjayamanne.python-environment-manager",
-            "matangover.mypy",
             "njpwerner.autodocstring",
             // SOME EXTENSIONS
             "bungcip.better-toml",
