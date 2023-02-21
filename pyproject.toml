@@ -23,14 +23,13 @@ django = ">=3.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.12.0"
-isort = "^5.11.4"
-mypy = "^0.991"
-pylint = "^2.15.10"
 django-stubs = "^1.13.1"
 django-types = "^0.16.0"
 pylint-django = "^2.5.3"
 pre-commit = "^3.0.2"
 commitizen = "^2.40.0"
+ruff = "^0.0.249"
+pyright = "^1.1.294"
 
 
 [tool.poetry.group.test.dependencies]
