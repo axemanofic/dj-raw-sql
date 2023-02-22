@@ -1,11 +1,12 @@
 # Get Started
 
+dj-raw-sql is just a wrapper over the [standard Django query](https://docs.djangoproject.com/en/4.1/topics/db/sql/#executing-custom-sql-directly)
+
 This demo shows how to get the record(s) from the database
 
-``` py title="queries.py" linenums="1"
-from dj_raw_sql import execute_sql
+Example:
 
-@execute_sql()
+``` py title="queries.py" linenums="1"
 def get_music_by_id(id: int):
     return "SELECT * FROM dj_app_music WHERE id = %s", (id,)
 ```
@@ -27,9 +28,11 @@ from django.views import View
 
 from my_app.queries import get_music_by_id
 
+from dj_raw_sql import QueryExecutor
+
 
 class MyView(View):
     def get(self, request, *args, **kwargs):
-        music: tuple[tuple] = get_music_by_id(id=1)
+        music: tuple[tuple] = QueryExecutor.fetchone(get_music_by_id, id=1)
         return JsonResponse({"name": music[0][1]})
 ```
