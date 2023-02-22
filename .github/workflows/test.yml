@@ -28,4 +28,4 @@ jobs:
       - name: Install dependencies
         run: poetry install --without docs,dev
       - name: Run tests
-        run: poetry run pytest ./tests/test_execute_sql.py
+        run: poetry run pytest ./tests/test_executors/
