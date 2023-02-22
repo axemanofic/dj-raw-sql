@@ -1,7 +1,10 @@
-import json, pathlib, time
-from typing import Callable
+import json
+import pathlib
+import time
+from typing import Type
 
 from dj_app.models import Music
+from dj_raw_sql.main import BaseQueryExecutor
 
 
 def make_music():
@@ -12,9 +15,9 @@ def make_music():
         Music.objects.create(name=i["name"])
 
 
-def measure_execution_time(func, number_elements):
+def measure_execution_time(func, number_elements, executor: Type[BaseQueryExecutor]):
     t_start = time.monotonic()
-    func(number_elements)
+    executor.fetchall(func, number_elements)
     t_end = time.monotonic()
     t_run = t_end - t_start
     print(f"Time execution: {t_run:.5f} for {number_elements} elements")
