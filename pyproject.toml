@@ -12,30 +12,44 @@ keywords = ["python", "django"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: MIT License",
+    "Programming Language :: Python :: 3.8",
+    "Programming Language :: Python :: 3.9",
+    "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.1",
 ]
 
 
 [tool.poetry.dependencies]
-python = "^3.11"
+python = "^3.8"
 django = ">=3.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.12.0"
 django-stubs = "^1.13.1"
 django-types = "^0.16.0"
-pylint-django = "^2.5.3"
 pre-commit = "^3.0.2"
 commitizen = "^2.40.0"
 ruff = "^0.0.249"
 pyright = "^1.1.294"
 coverage = "^7.1.0"
 
+[tool.poetry.group.test]
+optional = true
 
 [tool.poetry.group.test.dependencies]
 pytest = "^7.2.1"
 pytest-django = "^4.5.2"
+
+[tool.poetry.group.tox]
+optional = true
+
+[tool.poetry.group.tox.dependencies]
+tox = "^4.4.6"
+
+[tool.poetry.group.docs]
+optional = true
 
 [tool.poetry.group.docs.dependencies]
 mkdocs-material = "^9.0.8"
