@@ -2,12 +2,14 @@
 name = "dj-raw-sql"
 version = "2.0.0"
 description = "This is a Django wrapper to make it easier to write raw SQL queries."
-authors = ["Roman Sotnikov <axeman.ofic@gmail.com>"]
-readme = "README.md"
-packages = [{include = "dj_raw_sql", from = "src"}]
 license = "MIT"
+authors = ["Roman Sotnikov <axeman.ofic@gmail.com>"]
 maintainers = ["Roman <axeman.ofic@gmail.com>"]
+readme = "README.md"
+
 repository = "https://github.com/axemanofic/dj-raw-sql"
+documentation = "https://axemanofic.github.io/dj-raw-sql/"
+
 keywords = ["python", "django"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
@@ -17,13 +19,17 @@ classifiers = [
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Framework :: Django :: 3.2",
-    "Framework :: Django :: 4.1",
 ]
 
 
+packages = [{include = "dj_raw_sql", from = "src"}]
+include = [
+    { path = "tests", format = "sdist" }
+]
+
 [tool.poetry.dependencies]
 python = "^3.8"
-django = ">=3.2"
+django = "^3.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.12.0"
@@ -35,10 +41,10 @@ ruff = "^0.0.249"
 pyright = "^1.1.294"
 coverage = "^7.1.0"
 
-[tool.poetry.group.test]
+[tool.poetry.group.tests]
 optional = true
 
-[tool.poetry.group.test.dependencies]
+[tool.poetry.group.tests.dependencies]
 pytest = "^7.2.1"
 pytest-django = "^4.5.2"
 
@@ -47,6 +53,7 @@ optional = true
 
 [tool.poetry.group.tox.dependencies]
 tox = "^4.4.6"
+tox-gh-actions = "^3.0.0"
 
 [tool.poetry.group.docs]
 optional = true
