@@ -1,9 +1,9 @@
-from typing import Any, List, OrderedDict, Tuple, TypeAlias, Callable
+from typing import Any, List, OrderedDict, Tuple, Callable
 
-RawSQL: TypeAlias = Tuple[str, Tuple]
+RawSQL = Tuple[str, Tuple]
 
-ListOrderedDict: TypeAlias = List[OrderedDict[str, Any]]
+ListOrderedDict = List[OrderedDict[str, Any]]
 
-Columns: TypeAlias = List[str]
+Columns = List[str]
 
-FetchResult: TypeAlias = Tuple[Tuple]
+FetchResult = Tuple[Tuple]
