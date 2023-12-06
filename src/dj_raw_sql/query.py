@@ -1,8 +1,7 @@
 from typing import TYPE_CHECKING, Protocol
 from abc import abstractmethod
-
 if TYPE_CHECKING:
-    from .params import BaseParametres
+    from typing import List, Any, Tuple
 
 
 class BaseQuery(Protocol):
@@ -13,22 +12,23 @@ class BaseQuery(Protocol):
 
     @property
     @abstractmethod
-    def params(self) -> tuple:
+    def params(self) -> "Tuple[Any, ...]":
         raise NotImplementedError
 
 
 class Query(BaseQuery):
-    def __init__(self, raw_sql, params: "BaseParametres | None" = None) -> None:
+    def __init__(self, raw_sql: str, params: "List[Any] | None" = None) -> None:
         self._raw_sql = raw_sql
         self._params = params
 
     @property
-    def sql(self) -> str:
+    def sql(self):
         """The sql property."""
         return self._raw_sql
 
     @property
-    def params(self) -> tuple:
+    def params(self):
         if self._params:
-            return tuple(self._params.get_params())
-        return tuple([self._params])
+            return tuple(self._params)
+        else:
+            return tuple()
