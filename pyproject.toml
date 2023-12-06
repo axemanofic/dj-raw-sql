@@ -40,25 +40,10 @@ commitizen = "^2.40.0"
 ruff = "^0.0.249"
 pyright = "^1.1.294"
 coverage = "^7.1.0"
-
-[tool.poetry.group.tests]
-optional = true
-
-[tool.poetry.group.tests.dependencies]
 pytest = "^7.2.1"
 pytest-django = "^4.5.2"
-
-[tool.poetry.group.tox]
-optional = true
-
-[tool.poetry.group.tox.dependencies]
 tox = "^4.4.6"
 tox-gh-actions = "^3.0.0"
-
-[tool.poetry.group.docs]
-optional = true
-
-[tool.poetry.group.docs.dependencies]
 mkdocs-material = "^9.0.8"
 
 
@@ -89,7 +74,7 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.commitizen]
-name = "cz_conventional_commits"
+name = "dj_raw_sql"
 version = "2.0.0"
 version_files = [
   "src/__version__.py",
