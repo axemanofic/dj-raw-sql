@@ -1,7 +1,14 @@
-## 2.0.0 (2023-02-22)
+## Unreleased
+
+### Feat
+
+- add query, executors, params, query_result
+- add support for python >= 3.8
 
 ### Fix
 
+- delete params, fix errors types
+- Merge branch 'master' of https://github.com/axemanofic/dj-raw-sql
 - Merge branch 'new' into dev
 - update tests
 - The mechanics of request execution has been changed
@@ -11,6 +18,11 @@
 
 ### Refactor
 
+- update ci
+- update README.md
+- update ci
+- update version project and add changelog
+- update doc
 - update configs; add coverage
 - update pre-commit
 - update vscode config; delete trash
@@ -20,8 +32,17 @@
 ### Fix
 
 - update link to PyPi
+- update ci
+- update ci
+- update ci
+- update ci
 - update ci/cd
+- update ci
 - fixed name group
+- update ci/cd
+- update ci/cd
+- update ci/cd
+- update ci/cd
 - test deploy docs
 - fixed site name
 - update release notes

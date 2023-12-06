@@ -1,6 +1,6 @@
 [tool.poetry]
 name = "dj-raw-sql"
-version = "2.0.0"
+version = "3.0.0"
 description = "This is a Django wrapper to make it easier to write raw SQL queries."
 license = "MIT"
 authors = ["Roman Sotnikov <axeman.ofic@gmail.com>"]
@@ -74,8 +74,8 @@ requires = ["poetry-core"]
 build-backend = "poetry.core.masonry.api"
 
 [tool.commitizen]
-name = "dj_raw_sql"
-version = "2.0.0"
+name = "cz_conventional_commits"
+version = "3.0.0"
 version_files = [
   "src/__version__.py",
   "pyproject.toml:^version",
