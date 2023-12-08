@@ -21,9 +21,7 @@ classifiers = [
     "Framework :: Django :: 5.0",
 ]
 
-
 packages = [{include = "dj_raw_sql", from = "src"}]
-include = [{path = "tests", format = "sdist"}]
 exclude = [
   "tests", 
   ".pre-commit-config.yml", 
