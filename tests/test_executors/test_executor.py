@@ -1,7 +1,7 @@
 from collections import OrderedDict
 
 import pytest
-from dj_app.models import Music # pyright: ignore
+from dj_app.models import Music  # pyright: ignore
 from dj_raw_sql.executors import Executor
 
 from .queries import (
@@ -47,7 +47,7 @@ def test_add_music(create_music):
     executor = Executor()
     query = add_music(name="SomeName")
     executor.execute(query)
-    
+
     query = get_music_by_id(id=4)
     music = executor.fetchone(query).query_result
 

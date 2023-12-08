@@ -1,5 +1,6 @@
 from typing import TYPE_CHECKING, Protocol
 from abc import abstractmethod
+
 if TYPE_CHECKING:
     from typing import List, Any, Tuple
 

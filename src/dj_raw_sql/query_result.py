@@ -55,6 +55,7 @@ class QueryResult(BaseQueryResult):
 
 class OneQueryResult(QueryResult):
     _rows: "Tuple[Any, ...] | None"
+
     def __init__(
         self,
         rows: "Tuple[Any, ...] | None",
@@ -75,6 +76,7 @@ class OneQueryResult(QueryResult):
 
 class ManyQueryResult(QueryResult):
     _rows: "List[Tuple[Any, ...]]"
+
     def __init__(
         self,
         rows: "List[Tuple[Any, ...]]",
@@ -88,6 +90,7 @@ class ManyQueryResult(QueryResult):
     def query_result(self):
         columns_name = self._get_columns_name()
         return [OrderedDict(zip(columns_name, row)) for row in self._rows]
+
 
 class EmptyQueryResult(QueryResult):
     def __init__(
