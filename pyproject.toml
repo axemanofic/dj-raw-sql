@@ -10,26 +10,30 @@ readme = "README.md"
 repository = "https://github.com/axemanofic/dj-raw-sql"
 documentation = "https://axemanofic.github.io/dj-raw-sql/"
 
-keywords = ["python", "django"]
+keywords = ["python", "django", "sql", "database", "query", "web"]
 classifiers = [
     "Development Status :: 5 - Production/Stable",
     "License :: OSI Approved :: MIT License",
-    "Programming Language :: Python :: 3.8",
-    "Programming Language :: Python :: 3.9",
     "Programming Language :: Python :: 3.10",
     "Programming Language :: Python :: 3.11",
     "Framework :: Django :: 3.2",
+    "Framework :: Django :: 4.2",
+    "Framework :: Django :: 5.0",
 ]
 
 
 packages = [{include = "dj_raw_sql", from = "src"}]
-include = [
-    { path = "tests", format = "sdist" }
+include = [{path = "tests", format = "sdist"}]
+exclude = [
+  "tests", 
+  ".pre-commit-config.yml", 
+  "mkdocs.yml",
+  "noxfile.py"
 ]
 
 [tool.poetry.dependencies]
-python = "^3.8"
-django = "^3.2"
+python = "^3.10"
+django = ">=3.2"
 
 [tool.poetry.group.dev.dependencies]
 black = "^22.12.0"
@@ -40,11 +44,18 @@ commitizen = "^2.40.0"
 ruff = "^0.0.249"
 pyright = "^1.1.294"
 coverage = "^7.1.0"
+
+[tool.poetry.group.tests.dependencies]
 pytest = "^7.2.1"
 pytest-django = "^4.5.2"
-tox = "^4.4.6"
-tox-gh-actions = "^3.0.0"
+
+[tool.poetry.group.nox.dependencies]
+nox = "^2023.4.22"
+nox-poetry = "^1.0.3"
+
+[tool.poetry.group.docs.dependencies]
 mkdocs-material = "^9.0.8"
+
 
 
 [tool.black]
@@ -58,6 +69,7 @@ exclude = '''
     | \.hg
     | \.mypy_cache
     | \.tox
+    | \.nox
     | \.venv
     | _build
     | buck-out
